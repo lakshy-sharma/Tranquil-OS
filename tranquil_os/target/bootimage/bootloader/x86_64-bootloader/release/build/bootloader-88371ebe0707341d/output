@@ -1,7 +1,0 @@
-cargo:rerun-if-changed=/media/lakshy/Lakshy's Files/Workstation/tranquil_os/tranquil_os/Cargo.toml
-cargo:rustc-link-search=native=/media/lakshy/Lakshy's Files/Workstation/tranquil_os/tranquil_os/target/bootimage/bootloader/x86_64-bootloader/release/build/bootloader-88371ebe0707341d/out
-cargo:rustc-link-lib=static=kernel_bin-tranquil_os
-cargo:rerun-if-env-changed=KERNEL
-cargo:rerun-if-env-changed=KERNEL_MANIFEST
-cargo:rerun-if-changed=/media/lakshy/Lakshy's Files/Workstation/tranquil_os/tranquil_os/target/x86_64-tranquil_os/debug/tranquil_os
-cargo:rerun-if-changed=build.rs
