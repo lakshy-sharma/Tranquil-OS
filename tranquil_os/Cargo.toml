@@ -12,7 +12,18 @@ bootloader = "0.9.23"
 volatile = "0.2.6"
 # Using the spinlock mutex instead of standard ones.
 spin = "0.5.2"
+x86_64 = "0.14.2"
+# For our serial communications
+uart_16550 = "0.2.0"
 
 [dependencies.lazy_static]
 version = "1.0"
 features = ["spin_no_std"]
+
+# Adding the isa debug option to exit qemu using serial inputs
+[package.metadata.bootimage]
+test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04", "-serial", "stdio", "-display", "none"]
+# Custom success code for QEMU 0x10 is 33
+test-success-exit-code = 33
+# Avoid infinite tests wait only 5 minutes for completion
+test-timeout = 300
