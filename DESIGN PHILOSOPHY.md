@@ -1,4 +1,4 @@
-# Design Philosphy
+# Design Philosophy
 
 The following document paraphrases the design qualities that will govern the development of this operating system.
 Personally, These are the qualities I strive for in any software I develop. If you think something else should be added please feel free to contact me.
