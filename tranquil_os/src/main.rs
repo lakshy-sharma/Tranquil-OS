@@ -34,7 +34,7 @@ use core::panic::PanicInfo;
 // This is required since the linker needs a static entrypoint.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("It is better to do one's own duty imperfectly, than to do someone else's duty even though perfectly. (Bhagvad Gita 18.47)");
+    println!("Knowledge is strength.");
     #[cfg(test)]
     test_main();
     loop {}

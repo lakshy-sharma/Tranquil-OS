@@ -61,7 +61,7 @@ pub struct Writer {
 }
 
 // Creating a static Writer interface which can be used for writing to screen globally.
-// The lazy_static crate is used to ensure that the static variable doesnt get initialized during the compile time.
+// The lazy_static crate is used to ensure that the static variable doesn't get initialized during the compile time.
 lazy_static! {
 	pub static ref WRITER: Mutex<Writer> = Mutex::new(Writer {
 		column_position: 0,
@@ -129,7 +129,7 @@ impl Writer {
 				if self.column_position >= BUFFER_WIDTH {
 					self.new_line();
 				}
-				let row = BUFFER_HEIGHT -1;
+				let row = BUFFER_HEIGHT - 1;
 				let col = self.column_position;
 				let color_code = self.color_code;
 
@@ -145,7 +145,7 @@ impl Writer {
 		for byte in s.bytes() {
 			match byte {
 				// Printable ASCII
-				0x20..=0x70 | b'\n' => self.write_byte(byte),
+				0x20..=0x7F | b'\n' => self.write_byte(byte),
 				// Non printable ASCII
 				_ => self.write_byte(0xfe),
 			}
@@ -162,7 +162,7 @@ impl fmt::Write for Writer {
 
 #[test_case]
 fn test_println_output() {
-    let s = "Some test string that fits on a single line";
+    let s = "A test string that is shorter than one line";
     println!("{}", s);
     for (i, c) in s.chars().enumerate() {
         let screen_char = WRITER.lock().buffer.chars[BUFFER_HEIGHT - 2][i].read();
