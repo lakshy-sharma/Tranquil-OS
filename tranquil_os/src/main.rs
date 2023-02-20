@@ -34,9 +34,15 @@ use core::panic::PanicInfo;
 // This is required since the linker needs a static entrypoint.
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Knowledge is strength.");
+    println!("TRANQUIL OS");
+    println!("Those who sees action in inaction and inaction in action are truly wise amongst humans. (Bhagvad Gita 4.18)");
+
+    // Start all init routines.
+    tranquil_os::init();
+
     #[cfg(test)]
     test_main();
+    println!("Completed the main init.");
     loop {}
 }
 // Adding custom drivers.
